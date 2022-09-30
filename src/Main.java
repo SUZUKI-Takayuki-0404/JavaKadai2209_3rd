@@ -10,7 +10,11 @@ public class Main {
 
         for (int i = 0; i <= ids.size(); i++) {
             String name = studentById.get(ids.get(i));
-            System.out.println(name.toUpperCase());
+            try {
+                System.out.println(name.toUpperCase());
+            } catch (NullPointerException e) {
+                System.out.println("Data not available");
+            }
         }
     }
 }
