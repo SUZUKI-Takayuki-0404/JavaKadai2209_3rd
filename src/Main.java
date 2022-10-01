@@ -21,6 +21,7 @@ public class Main {
         System.out.println("別のやり方：streamAPIを利用");
         ids.stream()
                 .map(id -> studentById.getOrDefault(id, "Data not available"))
+                .map(String::toUpperCase)
                 .forEach(System.out::println);
 
     }
