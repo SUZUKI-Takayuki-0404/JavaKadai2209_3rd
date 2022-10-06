@@ -8,9 +8,20 @@ public class Main {
 
         List<Integer> ids = List.of(123, 234, 345, 456);
 
-        for (int i = 0; i <= ids.size(); i++) {
+        for (int i = 0; i < ids.size(); i++) {
             String name = studentById.get(ids.get(i));
-            System.out.println(name.toUpperCase());
+            try {
+                System.out.println(name.toUpperCase());
+            } catch (NullPointerException e) {
+                System.out.println("Data not available");
+            }
         }
+
+        System.out.println("------------------------");
+        System.out.println("別のやり方：streamAPIを利用");
+        ids.stream()
+                .map(id -> studentById.getOrDefault(id, "Data not available"))
+                .forEach(System.out::println);
+
     }
 }
